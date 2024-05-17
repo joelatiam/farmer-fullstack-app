@@ -1,6 +1,6 @@
 import swaggerJSDoc from 'swagger-jsdoc';
 
-import { APP_PORT, NODE_ENV } from '../../common/constants/app';
+import { APP_PORT, NODE_ENV } from '../../common/constants/app.env';
 import { farmersPaths } from './paths/farmersPaths';
 import { productsPaths } from './paths/productsPaths';
 import { farmersDefinitions } from './definitions/farmersDefinitions';

@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 
-import Product from '../../common/database/models/Product';
-import { ListQuery } from '../../common/types/routes';
+import Product from '../../../common/database/models/Product';
+import { ListQuery } from '../../../types/routes';
 
-export const getProducts = async (req: Request, res: Response): Promise<Response> => {
+const getProducts = async (req: Request, res: Response): Promise<Response> => {
     const query = req.query as Partial<ListQuery>;
   
     const { limit, offset, sortBy, sortOrder, type } = query as {
@@ -30,3 +30,7 @@ export const getProducts = async (req: Request, res: Response): Promise<Response
     return res.status(500).send({ message: "Failed to retrieve products", error: error.message });
   }
 };
+
+export default {
+  getProducts,
+}

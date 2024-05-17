@@ -17,13 +17,6 @@ module.exports = {
           key: 'id',
         },
       },
-      landSize: {
-        type: Sequelize.DECIMAL(10, 2),
-        allowNull: false,
-        validate: {
-          min: 0,
-        },
-      },
       productId: {
         type: Sequelize.INTEGER,
         allowNull: false,

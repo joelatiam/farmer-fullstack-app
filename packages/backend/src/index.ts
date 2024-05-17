@@ -2,7 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import swaggerUi from 'swagger-ui-express';
 import { errors } from 'celebrate';
 
-import { APP_PORT } from './common/constants/app';
+import { APP_PORT } from './common/constants/app.env';
 import routes from './api';
 import swaggerSpec from './api/swagger';
 

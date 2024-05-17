@@ -1,6 +1,6 @@
 import { Sequelize, Options } from 'sequelize';
 
-import {NODE_ENV, DATABASE_URL} from '../constants/app';
+import {NODE_ENV, DATABASE_URL} from '../constants/app.env';
 import {config} from './config/config'
 
 

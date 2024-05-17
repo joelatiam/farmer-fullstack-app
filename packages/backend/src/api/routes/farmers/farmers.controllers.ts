@@ -1,4 +1,4 @@
-import Farmer from '../../common/database/models/Farmer';
+import Farmer from '../../../common/database/models/Farmer';
 import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 

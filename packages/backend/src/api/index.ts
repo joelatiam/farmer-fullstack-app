@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
-import farmers from './farmers/farmers.routes';
-import products from './products/products.routes';
+import farmers from './routes/farmers/farmers.routes';
+import products from './routes/products/products.routes';
 
 const router = Router();
 

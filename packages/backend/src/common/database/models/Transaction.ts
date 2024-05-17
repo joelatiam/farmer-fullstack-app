@@ -1,4 +1,5 @@
 import { Sequelize, Model, DataTypes } from 'sequelize';
+import {sequelize} from '../index';
 
 import Farmer from './Farmer';
 import Product from './Product';
@@ -28,56 +29,54 @@ class Transaction extends Model<TransactionAttributes>
   public amount!: number;
   public type!: TransactionType;
 
-  static initModel(sequelize: Sequelize) {
-    Transaction.init(
-      {
-        id: {
-          type: DataTypes.INTEGER,
-          autoIncrement: true,
-          primaryKey: true,
-        },
-        orderId: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-          references: {
-            model: 'order',
-            key: 'id',
-          },
-        },
-        farmerId: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-          references: {
-            model: 'farmer',
-            key: 'id',
-          },
-        },
-        productId: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-          references: {
-            model: 'product',
-            key: 'id',
-          },
-        },
-        amount: {
-          type: DataTypes.DECIMAL(10, 2),
-          allowNull: false,
-        },
-        type: {
-          type: DataTypes.ENUM(...Object.values(TransactionType)),
-          allowNull: false,
-        },
-      },
-      { sequelize, modelName: 'transactions' }
-    );
-
-    
-    Transaction.belongsTo(Farmer, { foreignKey: 'farmerId' });
-    Transaction.belongsTo(Product, { foreignKey: 'productId' });
-    Transaction.belongsTo(Order, { foreignKey: 'orderId' });
-
-  }
 }
+
+Transaction.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    orderId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'order',
+        key: 'id',
+      },
+    },
+    farmerId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'farmer',
+        key: 'id',
+      },
+    },
+    productId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'product',
+        key: 'id',
+      },
+    },
+    amount: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false,
+    },
+    type: {
+      type: DataTypes.ENUM(...Object.values(TransactionType)),
+      allowNull: false,
+    },
+  },
+  { sequelize, modelName: 'transactions' }
+);
+
+
+Transaction.belongsTo(Farmer, { foreignKey: 'farmerId' });
+Transaction.belongsTo(Product, { foreignKey: 'productId' });
+Transaction.belongsTo(Order, { foreignKey: 'orderId' });
 
 export default Transaction;

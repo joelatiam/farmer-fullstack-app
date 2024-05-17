@@ -1,6 +1,6 @@
 import { celebrate, Joi, Segments } from 'celebrate';
 
-export const getProductsValidation = celebrate({
+const getProductsValidation = celebrate({
   [Segments.QUERY]: {
     limit: Joi.number().integer().min(1).max(100).default(5),
     offset: Joi.number().integer().min(0).default(0),
@@ -10,4 +10,8 @@ export const getProductsValidation = celebrate({
   },
 },{
     convert: true,
-  });
+});
+
+export default {
+  getProductsValidation
+}
