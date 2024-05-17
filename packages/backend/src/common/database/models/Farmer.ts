@@ -2,7 +2,7 @@ import { Sequelize, Model, DataTypes } from 'sequelize';
 import {sequelize} from '../index';
 
 interface FarmerAttributes {
-  id: number;
+  id?: number;
   name: string;
   landSize: number;
   email: string;
