@@ -1,7 +1,7 @@
 import { Sequelize, Options } from 'sequelize';
 
 import {NODE_ENV, DATABASE_URL} from '../constants/app';
-import {config} from '../config/db'
+import {config} from './config/config'
 
 
 const sequelizeConfig = config[NODE_ENV as 'development'|'production'];
