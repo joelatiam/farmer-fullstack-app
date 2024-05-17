@@ -1,6 +1,10 @@
 import swaggerJSDoc from 'swagger-jsdoc';
-import { farmerPaths } from './paths/farmerPaths';
-import { farmerDefinitions } from './definitions/farmerDefinitions';
+
+import { APP_PORT, NODE_ENV } from '../../common/constants/app';
+import { farmersPaths } from './paths/farmersPaths';
+import { productsPaths } from './paths/productsPaths';
+import { farmersDefinitions } from './definitions/farmersDefinitions';
+import { productsDefinitions } from './definitions/productsDefinitions';
 
 const swaggerDefinition = {
   openapi: '3.0.0',
@@ -11,17 +15,19 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: 'http://localhost:3000/api',
-      description: 'Development server',
+      url: `http://localhost:${APP_PORT}/api`,
+      description: `${NODE_ENV} server`,
     },
   ],
   components: {
     schemas: {
-      ...farmerDefinitions
+      ...farmersDefinitions,
+      ...productsDefinitions,
     }
   },
   paths: {
-    ...farmerPaths
+    ...farmersPaths,
+    ...productsPaths
   }
 };
 

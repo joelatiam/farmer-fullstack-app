@@ -1,4 +1,4 @@
-export const farmerDefinitions = {
+export const farmersDefinitions = {
     Farmer: {
       type: 'object',
       properties: {

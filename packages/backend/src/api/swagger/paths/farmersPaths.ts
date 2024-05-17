@@ -1,4 +1,4 @@
-export const farmerPaths = {
+export const farmersPaths = {
     '/farmers/signup': {
       post: {
         tags: ['Farmers'],

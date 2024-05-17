@@ -9,7 +9,7 @@
     "build": "tsc",
     "db:migrate": "sequelize-cli db:migrate",
     "db:migrate:undo": "sequelize-cli db:migrate:undo",
-    "db:seed": "sequelize-cli db:seed"
+    "db:seed:all": "sequelize-cli db:seed:all"
   },
   "dependencies": {
     "@types/bcrypt": "^5.0.2",
