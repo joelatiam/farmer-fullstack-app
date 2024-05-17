@@ -1,13 +1,17 @@
 import express, { Request, Response, NextFunction } from 'express';
-import routes from './api';
+import swaggerUi from 'swagger-ui-express';
 import { errors } from 'celebrate';
 
 import { APP_PORT } from './common/constants/app';
+import routes from './api';
+import swaggerSpec from './api/swagger';
 
 const app = express();
 
 app.use(express.json());
 app.use('/api', routes);
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 
 
 app.post('/api/farmers/signup', (req: Request, res: Response) =>
@@ -37,7 +41,10 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 // Start the server
 async function startServer() {
   try {
-    app.listen(APP_PORT, () => console.log(`Server listening on port ${APP_PORT}`));
+    app.listen(APP_PORT, () => {
+      console.log(`Server listening on port ${APP_PORT}`);
+      console.log(`Docs: http://localhost:${APP_PORT}/api/docs`);
+    });
   } catch (error) {
     console.error(error);
     // process.exit(1);
