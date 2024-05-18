@@ -6,8 +6,8 @@ import Product from './Product';
 import Order from './Order';
 
 enum TransactionType {
-    Fertilizer = 'Purchase',
-    Seed = 'Refund',
+    Purchase = 'Purchase',
+    Refund = 'Refund',
   }
 
 interface TransactionAttributes {

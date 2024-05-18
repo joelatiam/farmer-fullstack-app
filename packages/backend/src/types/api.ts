@@ -4,4 +4,5 @@ export interface ListQuery {
     sortBy: string;
     sortOrder: 'ASC' | 'DESC';
     type?: string;
+    status?: string;
   }
