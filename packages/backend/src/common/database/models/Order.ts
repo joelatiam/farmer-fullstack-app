@@ -12,6 +12,8 @@ interface OrderAttributes {
   productUnitPrice: number;
   quantity: number;
   status: OrderStatus;
+  farmer?: Farmer;
+  product?: Product;
 
 }
 
@@ -22,6 +24,8 @@ class Order extends Model<OrderAttributes> implements OrderAttributes {
   public productUnitPrice!: number;
   public quantity!: number;
   public status!: OrderStatus;
+  public farmer?: Farmer;
+  public product?: Product;
 }
 
 Order.init(

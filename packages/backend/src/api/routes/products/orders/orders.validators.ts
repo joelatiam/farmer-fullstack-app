@@ -13,6 +13,17 @@ const orderValidation = celebrate({
     convert: true,
 });
 
+const updateOrderValidation = celebrate({
+  params: Joi.object({
+    orderId: Joi.number().required(),
+  }),
+  body: Joi.object({
+    status: Joi.string().valid('Approved', 'Rejected').required(),
+    password: Joi.string().required(),
+  }),
+});
+
 export default {
     orderValidation,
+    updateOrderValidation,
 }

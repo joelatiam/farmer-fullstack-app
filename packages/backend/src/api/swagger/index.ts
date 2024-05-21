@@ -5,6 +5,7 @@ import { farmersPaths } from './paths/farmersPaths';
 import { productsPaths } from './paths/productsPaths';
 import { farmersDefinitions } from './definitions/farmersDefinitions';
 import { productsDefinitions } from './definitions/productsDefinitions';
+import {responses} from './definitions/responses';
 
 const swaggerDefinition = {
   openapi: '3.0.0',
@@ -23,6 +24,7 @@ const swaggerDefinition = {
     schemas: {
       ...farmersDefinitions,
       ...productsDefinitions,
+      ...responses,
     }
   },
   paths: {

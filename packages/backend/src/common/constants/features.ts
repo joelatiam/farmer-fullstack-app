@@ -4,3 +4,8 @@ export enum OrderStatus {
     Rejected = 'Rejected',
     Failed = 'Failed',
 }
+
+export enum TransactionType {
+    Purchase = 'Purchase',
+    Refund = 'Refund',
+}

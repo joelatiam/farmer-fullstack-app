@@ -4,14 +4,11 @@ import {sequelize} from '../index';
 import Farmer from './Farmer';
 import Product from './Product';
 import Order from './Order';
+import {TransactionType} from '../../constants/features';
 
-enum TransactionType {
-    Purchase = 'Purchase',
-    Refund = 'Refund',
-  }
 
 interface TransactionAttributes {
-  id: number;
+  id?: number;
   orderId: number;
   farmerId: number;
   productId: number;
@@ -22,7 +19,7 @@ interface TransactionAttributes {
 
 class Transaction extends Model<TransactionAttributes>
   implements TransactionAttributes {
-  public id!: number;
+  public id?: number;
   public orderId!: number;
   public farmerId!: number;
   public productId!: number;

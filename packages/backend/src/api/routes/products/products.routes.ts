@@ -16,5 +16,7 @@ router
 
 router.get('/orders', getManyItemsValidation, orderssController.getAllOrders);
 
+router.put('/orders/:orderId', ordersValidator.updateOrderValidation, orderssController.approveOrRejectOrder);
+
 
 export default router;
