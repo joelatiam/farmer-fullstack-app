@@ -12,7 +12,7 @@ export async function validateFarmerOrder  ({orderQuantity, product, farmer}: {o
   const {type: productType} = product;
 
  const [{weight}]: {weight: string}[]  =  await sequelize.query(`
-    SELECT COALESCE(SUM((p."weigthInKg" * o."quantity")), 0) "weight"
+    SELECT COALESCE(SUM((p."weightInKg" * o."quantity")), 0) "weight"
     FROM products p
     INNER JOIN orders o ON p.id = o."productId"
     WHERE o.status = 'Approved'
@@ -28,14 +28,14 @@ export async function validateFarmerOrder  ({orderQuantity, product, farmer}: {o
 
   const {landSize} = farmer;
   const productsWeight = parseInt(weight);
-  const currentOrderWeight = product.weigthInKg * orderQuantity;
+  const currentOrderWeight = product.weightInKg * orderQuantity;
   const allProductsWeight = productsWeight + currentOrderWeight;
 
-  const weigthExceeded = isFertilizer ? allProductsWeight > landSize * 3 : allProductsWeight > landSize;
+  const weightExceeded = isFertilizer ? allProductsWeight > landSize * 3 : allProductsWeight > landSize;
   
-  console.log(weight, farmer.id, productType, currentOrderWeight, allProductsWeight, weigthExceeded);
+  console.log(weight, farmer.id, productType, currentOrderWeight, allProductsWeight, weightExceeded);
 
-  if (weigthExceeded) {
+  if (weightExceeded) {
     throw new Error(`Products Type ${productType} weight : ${productsWeight} + ${currentOrderWeight} exceeds land size limit ${landSize}`);
   }
 

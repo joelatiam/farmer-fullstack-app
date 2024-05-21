@@ -21,7 +21,7 @@ module.exports = {
         type: Sequelize.DECIMAL(10, 2),
         allowNull: false,
       },
-      weigthInKg: {
+      weightInKg: {
         type: Sequelize.DECIMAL(10, 2),
         allowNull: false,
       },

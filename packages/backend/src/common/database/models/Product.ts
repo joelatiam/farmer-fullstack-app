@@ -11,7 +11,7 @@ interface ProductAttributes {
   name: string;
   type: ProductType;
   price: number;
-  weigthInKg: number;
+  weightInKg: number;
 }
 
 class Product extends Model<ProductAttributes> implements ProductAttributes {
@@ -19,7 +19,7 @@ class Product extends Model<ProductAttributes> implements ProductAttributes {
   public name!: string;
   public type!: ProductType;
   public price!: number;
-  public weigthInKg!: number;
+  public weightInKg!: number;
 
 }
 
@@ -45,7 +45,7 @@ Product.init(
         min: 0.01,
       },
     },
-    weigthInKg: {
+    weightInKg: {
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
       validate: {
