@@ -299,7 +299,8 @@ export const productsPaths = {
                   description: 'New status of the order'
                 },
                 password: {
-                  type: '12345',
+                  type: 'string',
+                  example: '12345',
                   description: 'Admin password for approval'
                 }
               },
