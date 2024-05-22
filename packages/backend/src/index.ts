@@ -14,7 +14,7 @@ app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
 
-app.post('/api/farmers/signup', (req: Request, res: Response) =>
+app.get('/', (req: Request, res: Response) =>
   res.json({
     status: 200,
     message: 'Welcome to Farmers App API',

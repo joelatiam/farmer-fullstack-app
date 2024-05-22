@@ -272,7 +272,7 @@ export const productsPaths = {
   },
   '/products/orders/{orderId}': {
     put: {
-      tags: ['Orders'],
+      tags: ['Products'],
       summary: 'Approve or reject an order',
       description: 'Approve or reject an order. This operation requires the admin password provided in the request body.',
       parameters: [
